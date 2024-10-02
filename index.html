@@ -5,217 +5,205 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Display</title>
     <style>
-      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* Ensure padding and borders are included in width/height */
+        }
 
-       
-     
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Ensure padding and borders are included in width/height */
-}
+        body {
+            font-family: Arial, sans-serif;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    max-width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+        #outer-box {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 41px;
+        }
 
-/* Flexbox layout for overall structure */
-#outer-box {
-    display: flex;
-    justify-content: center;
-    width: 100%; 
-    margin-top: 20px;
-}
+        #cover {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
 
-/* Center the cover */
-#cover {
-    width: 100%; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
+        #header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-image: url('Frame 6.png');
+            background-size: cover;
+            background-position: center;
+        }
 
-/* Header */
-#header {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    background-image: url('Frame 6.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+        #img1 {
+            width: 200px;
+        }
 
-/* Responsive navigation links */
-.nav-link {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #333;
-    transition: color 0.3s;
-}
+        .nav-link {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
 
-.nav-link:hover {
-    color: #1e90ff;
-}
+        .nav-link:hover {
+            color: #1e90ff;
+        }
 
-/* Product Card */
-.product-card {
-    width: 100%;
-    margin: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .main-img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
 
-.product-image {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
+        #parent--div {
+            position: relative;
+            width: 90%;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
 
-.product-info {
-    text-align: center;
-    margin-top: 10px;
-}
+        #pass {
+            margin-bottom: 20px;
+        }
 
-.product-info p {
-    font-size: 1em;
-    margin: 5px 0;
-}
+        #par {
+            font-size: 2em;
+            font-weight: 400;
+        }
 
-.price {
-    color: #ff4500;
-}
+        #parr {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
 
-/* Grid Layout for products */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 20px;
-}
+        #parr3 {
+            font-size: 1em;
+            line-height: 1.5;
+            color: rgba(49, 84, 109, 1);
+        }
 
-/* Buttons */
-.shop-now, .buy-now, .view-all {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1e90ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
+        #but, #mis {
+            padding: 10px 20px;
+            border-radius: 18px;
+            margin: 10px;
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
 
-.buy-now:hover, .view-all:hover, .shop-now:hover {
-    background-color: #ff4500;
-}
+        #box--inside {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-/* Best Price Section */
-.best-price {
-    text-align: center;
-    padding: 50px;
-    background-color: #f7f7f7;
-}
+        #imagee {
+            width: 50%;
+            height: auto;
+        }
 
-/* Media Queries for Responsive Design */
+        .product-list {
+            margin-top: 50px;
+            width: 100%;
+        }
 
-/* For tablets and smaller screens */
-@media (max-width: 768px) {
-    #header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
 
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin-top: 10px;
-    }
+        .product {
+            background-color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    .nav-link {
-        margin: 10px 0;
-    }
+        .product img {
+            width: 100px;
+            height: auto;
+        }
 
-    /* Adjust product grid for smaller screens */
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
+        .product p {
+            margin: 10px 0;
+        }
 
-    .product-info p {
-        font-size: 0.9em;
-    }
+        .buy-now, .view-all {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    #parr {
-        font-size: 1.5em;
-    }
+        .view-all {
+            margin-top: 20px;
+        }
 
-    #parr3 {
-        font-size: 0.9em;
-    }
-}
+        @media (max-width: 768px) {
+            #pass {
+                text-align: center;
+            }
 
-/* For mobile phones */
-@media (max-width: 480px) {
-    #header {
-        flex-direction: column;
-        padding: 10px;
-    }
+            #par {
+                font-size: 1.5em;
+            }
 
-    .nav-link {
-        font-size: 14px;
-    }
+            #parr {
+                font-size: 2em;
+            }
 
-    #cover {
-        padding: 10px;
-    }
+            #imagee {
+                width: 80%;
+            }
+        }
 
-    #parr {
-        font-size: 1.2em;
-    }
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
 
-    #parr3 {
-        font-size: 0.8em;
-    }
+            .product img {
+                width: 70px;
+            }
 
-    /* Adjust product card for mobile */
-    .product-card {
-        width: 90%;
-        margin: 10px auto;
-    }
+            #but, #mis {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
 
-    .shop-now, .buy-now, .view-all {
-        width: 100%;
-        padding: 15px;
-    }
-}
+            #par {
+                font-size: 1.2em;
+            }
 
-       
-
-   
-  
-      
-       
-
-
-
-
-   
-</style>
-
-<html>
+            #parr {
+                font-size: 1.8em;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="outer-box">
         <div id="cover">
             <div id="header">
                 <div id="img1">
-                    <img src="Group 110.png" alt="Logo" class="img11"> <!-- First image -->
+                    <img src="Group 110.png" alt="Logo" class="img11">
                 </div>
                 <nav>
                     <a class="nav-link" href="#">Home</a>
@@ -223,156 +211,75 @@ body {
                     <a class="nav-link" href="#">About Us</a>
                     <a class="nav-link" href="#">Help</a>
                 </nav>
-                <img src="Group 109.png" alt="User Icon" class="img2"> <!-- Second image -->
+                <img src="Group 109.png" alt="User Icon" class="img2">
             </div>
 
-<div id="parent--div">
-    <div id="pass"> <p  id="par">Welcome to</p>
-      <p id="parr"> Pop Rock Crystal Shop!</p>
-      <br>
+            <div id="parent--div">
+                <div id="pass">
+                    <p id="par">Welcome to</p>
+                    <p id="parr">Pop Rock Crystal Shop!</p>
+                    <p id="parr3">Here you will find unique phone accessories, crystals, jewelry and more. Free shipping inside the U.S. and our phone grips come with a limited warranty. Enjoy!</p>
+                    <div>
+                        <button id="but">Shop Now</button>
+                        <button id="mis">About Us</button>
+                    </div>
+                </div>
 
-      <div id="parr2"><p id="parr3">Here you will find unique phone accessories, crystals, jewelry and more. Free shipping inside the U.S. and our phone grips come with a limited warranty. Enjoy!
-    </p></div> 
-    <div > <button id="but">Shop Now</button><button id="mis">About us</button>
-    </div> 
-   
-    </div>
- 
- 
+                <div id="box--inside">
+                    <img src="product.png" alt="Product Image" id="imagee">
+                </div>
 
-
-    <div id="vector">
-        <img src="Vector 1.png" alt="Logo" >   
-    </div>
-    <div id="box--inside">
-        <img src="product.png" alt="Logo" id="imagee"> 
-        <img src="Group 113.png" alt="Logo" id="small"> 
-      
-      
-    </div>
-    <img src="Frame 5.png" alt="Logo" > 
-
-
-</div>
-<div id="rectanglee">
-    <div id="proo"><p id="projo">All Product</p></div>
-    
-    <section class="product-list" id="shop">
-        
-        <div class="product-grid">
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
+                <section class="product-list" id="shop">
+                    <div class="product-grid">
+                        <div class="product">
+                            <img src="product.png" alt="Crystal Agate Phone Grip">
+                            <p>CRYSTAL AGATE PHONE GRIP</p>
+                            <p><strong>18.99$</strong></p>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                        <div class="product">
+                            <img src="product.png" alt="Crystal Agate Phone Grip">
+                            <p>CRYSTAL AGATE PHONE GRIP</p>
+                            <p><strong>18.99$</strong></p>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                        <div class="product">
+                            <img src="product.png" alt="Crystal Agate Phone Grip">
+                            <p>CRYSTAL AGATE PHONE GRIP</p>
+                            <p><strong>18.99$</strong></p>
+                            <button class="buy-now">Buy Now</button>
+                        </div>
+                        <!-- Add more products as needed -->
+                    </div>
+                    <button class="view-all">View All</button>
+                </section>
             </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <div class="product">
-                <img src="product.png" alt="Crystal Agate Phone Grip">
-                <p>CRYSTAL AGATE PHONE GRIP</p>
-                <p><strong>18.99$</strong></p>
-                <button class="buy-now">Buy Now</button>
-                
-            </div>
-            <!-- Add more products as needed -->
         </div>
-        <button class="view-all">View All</button>
-    </section>
-    <div id="vector22">
-       
-        
-        <div id="lastpartoflastbox">
-        <div id="last--1">
-           
-            <img src="bla.png" id="coverima" >
-            <img src="Group 124.png" id="group12" > 
- </div>
-
-</div>
-<div>
-    
- 
-    <img src="Vector 2.png" id="a1"  ></div>  
     </div>
-  
-    </div>
-      
-</div>
 
+    <script>
+        // Scroll to shop section when 'Shop Now' is clicked
+        document.getElementById("but").addEventListener("click", function() {
+            window.location.href = "#shop";
+        });
 
-</div>
-<div id="rex"><img src="Rectangle 235.png" alt="Crystal Agate Phone Grip"></div> 
+        // Alert for 'About Us' button
+        document.getElementById("mis").addEventListener("click", function() {
+            alert("Welcome to the Pop Rock Crystal Shop! Here you can find amazing crystals and accessories.");
+        });
+
+        // Alert for 'Buy Now' button
+        const buyButtons = document.querySelectorAll('.buy-now');
+        buyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Thank you for your purchase!');
+            });
+        });
+
+        // Alert for 'View All' button
+        document.querySelector('.view-all').addEventListener('click', function() {
+            alert('Displaying all products.');
+        });
+    </script>
 </body>
 </html>
-
-<script>
-    // Add event listener for 'Shop Now' button
-    document.getElementById("shop-now-btn").addEventListener("click", function() {
-        window.location.href = "#shop"; // Scroll to shop section
-    });
-
-    // Add event listener for 'About Us' button
-    document.getElementById("about-us-btn").addEventListener("click", function() {
-        alert("Welcome to the Pop Rock Crystal Shop! Here you can find amazing crystals and accessories.");
-    });
-
-    // Add event listeners for each 'Buy Now' button
-    const buyButtons = document.querySelectorAll('.buy-now');
-    buyButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            alert('Thank you for your purchase!');
-        });
-    });
-
-    // Add functionality to 'View All' button
-    document.querySelector('.view-all').addEventListener('click', function() {
-        alert('Displaying all products.');
-    });
-</script>
